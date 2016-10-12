@@ -10,3 +10,16 @@
 .fa-star{
   color:#f2c41d;
 }
+
+.instruction-list{
+  counter-reset:steps;
+}
+
+.instruction-list li::before{
+  counter-increment:steps;
+  content:counter(steps) ":";
+}
+
+.recipe-title{
+  font-size:1.3rem;
+}

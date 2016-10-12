@@ -1,14 +1,37 @@
-<div class="card" *ngFor="let recipe of recipes" [ngClass]="{'hide-recipe-card':(onlyStars && !recipe.star)}">
-
-  <!-- IF THERE ARE NO RECIPES TO DISPLAY -->
-  <div class="card-block" *ngIf="recipes.length == 0 || (onlyStars && !recipesHaveStars())">
+<!-- IF THERE ARE NO RECIPES TO DISPLAY -->
+<div class="card" *ngIf="recipes.length == 0 || (onlyStars && !recipesHaveStars())">
+  <div class="card-block">
     No recipes available.
   </div>
+</div>
 
-  <!-- DISPLAY RECIPES -->
+<!-- DISPLAY RECIPES -->
+<div class="card" *ngFor="let recipe of recipes" [ngClass]="{'hide-recipe-card':(onlyStars && !recipe.star)}">
+
   <div class="card-block">
     <i class="fa" [ngClass]="{'fa-star':recipe.star, 'fa-star-o':!recipe.star}" (click)="toggleStar(recipe)"></i>
-    {{recipe.name}}
+    <span class="recipe-title">{{recipe.name}}</span>
+  </div>
+
+  <div class="card-block">
+    <b>Items</b>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let item of recipe.items">
+        {{item.id.name}}
+        <span class="pull-right">
+          <small>{{item.id.amount}}&nbsp;/</small>&nbsp;{{item.amount}}
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card-block">
+    <b>Instructions</b>
+    <ul class="list-group list-group-flush instruction-list">
+      <li class="list-group-item" *ngFor="let step of recipe.instructions">
+        {{step}}
+      </li>
+    </ul>
   </div>
 
 </div>

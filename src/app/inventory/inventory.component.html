@@ -9,7 +9,7 @@
     <!-- DISPLAY ITEMS -->
     <li class="list-group-item" *ngFor="let item of items" [ngClass]="{'hide-list-item':(onlyStars && !item.star)}">
       <i class="fa" [ngClass]="{'fa-star':item.star, 'fa-star-o':!item.star}" (click)="toggleStar(item)"></i>
-      {{item.name}}
+      <span class="item-title">{{item.name}}</span>
       <span class="pull-right">{{item.amount}}</span>
     </li>
 
