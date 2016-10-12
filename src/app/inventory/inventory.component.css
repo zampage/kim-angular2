@@ -1,0 +1,12 @@
+.hide-list-item{
+  display:none;
+}
+
+.fa{
+  font-size:24px;
+  margin-right:10px;
+}
+
+.fa-star{
+  color:#f2c41d;
+}

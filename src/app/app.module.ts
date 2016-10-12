@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { RecepiesComponent } from './recepies/recepies.component';
+import {ItemsService} from "./services/items.service";
+import {RecepiesService} from "./services/recepies.service";
 
 @NgModule({
   declarations: [
@@ -24,7 +26,7 @@ import { RecepiesComponent } from './recepies/recepies.component';
     NgbModule.forRoot(),
     routing
   ],
-  providers: [],
+  providers: [ItemsService, RecepiesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import {ItemsService} from "../services/items.service";
 
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
   styleUrls: ['./inventory.component.css']
 })
-export class InventoryComponent implements OnInit {
+export class InventoryComponent {
 
-  constructor() { }
+  items;
+  @Input() onlyStars = false;
 
-  ngOnInit() {
+  constructor(is : ItemsService) {
+    this.items = is.getItems();
+  }
+
+  toggleStar(item){
+    item.star = !item.star;
   }
 
 }
