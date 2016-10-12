@@ -1,3 +1,38 @@
-<h1>KIM</h1>
+<nav class="navbar navbar-dark bg-primary">
+  <div class="container-fluid">
 
-<router-outlet></router-outlet>
+    <!-- BRAND, BURGER -->
+    <!--
+    <div class="navbar-header">
+      <a class="navbar-brand">
+        <i class="fa fa-home"></i>
+      </a>
+      <button class="navbar-toggler pull-right" type="button" data-toggle="collapse" data-target="#toggable-nav" aria-controls="exCollapsingNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        &#9776;
+      </button>
+    </div>
+    -->
+
+    <!-- MAIN NAV -->
+    <div class="navbar-collapse" id="toggable-nav">
+      <ul class="nav navbar-nav">
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/inventory" routerLinkActive="active">Inventar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/recepies" routerLinkActive="active">Rezepte</a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
