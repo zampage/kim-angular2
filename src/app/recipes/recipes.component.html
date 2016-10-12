@@ -1,3 +1,14 @@
-<p>
-  recipes works!
-</p>
+<div class="card" *ngFor="let recipe of recipes" [ngClass]="{'hide-recipe-card':(onlyStars && !recipe.star)}">
+
+  <!-- IF THERE ARE NO RECIPES TO DISPLAY -->
+  <div class="card-block" *ngIf="recipes.length == 0 || (onlyStars && !recipesHaveStars())">
+    No recipes available.
+  </div>
+
+  <!-- DISPLAY RECIPES -->
+  <div class="card-block">
+    <i class="fa" [ngClass]="{'fa-star':recipe.star, 'fa-star-o':!recipe.star}" (click)="toggleStar(recipe)"></i>
+    {{recipe.name}}
+  </div>
+
+</div>

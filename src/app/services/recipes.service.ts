@@ -1,8 +1,25 @@
 import { Injectable } from '@angular/core';
+import {ItemsService} from "./items.service";
 
 @Injectable()
 export class RecipesService {
 
-  constructor() { }
+  recipes = [];
+
+  constructor(is : ItemsService){
+
+    var items = is.getItems();
+    this.recipes = [
+      {name: 'Spaghetti Carbonara', items: [
+        {id: items[1], amount: '0.3 L'},
+        {id: items[2], amount: '1 pc.'}
+      ], star: true}
+    ];
+
+  }
+
+  getRecips(){
+    return this.recipes;
+  }
 
 }

@@ -1,15 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import {RecipesService} from "../services/recipes.service";
 
 @Component({
   selector: 'app-recipes',
-  templateUrl: 'recipes.component.html',
-  styleUrls: ['recipes.component.css']
+  templateUrl: './recipes.component.html',
+  styleUrls: ['./recipes.component.css']
 })
-export class RecipesComponent implements OnInit {
+export class RecipesComponent {
 
-  constructor() { }
+  recipes;
+  @Input() onlyStars = false;
 
-  ngOnInit() {
+  constructor(rs : RecipesService) {
+    this.recipes = rs.getRecips();
+  }
+
+  toggleStar(recipe){
+    recipe.star = !recipe.star;
+  }
+
+  recipesHaveStars(){
+    var answer = false;
+    this.recipes.forEach(function(recipe){
+      if(recipe.star){
+        answer = true;
+      }
+    });
+    return answer;
   }
 
 }

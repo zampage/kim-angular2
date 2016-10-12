@@ -1,6 +1,11 @@
 <div class="card">
   <ul class="list-group list-group-flush">
 
+    <!-- IF THERE ARE NO ITEMS TO DISPLAY -->
+    <li class="list-group-item" *ngIf="items.length == 0 || (onlyStars && !itemsHaveStars())">
+      No items available.
+    </li>
+
     <!-- DISPLAY ITEMS -->
     <li class="list-group-item" *ngFor="let item of items" [ngClass]="{'hide-list-item':(onlyStars && !item.star)}">
       <i class="fa" [ngClass]="{'fa-star':item.star, 'fa-star-o':!item.star}" (click)="toggleStar(item)"></i>
@@ -8,9 +13,5 @@
       <span class="pull-right">{{item.amount}}</span>
     </li>
 
-    <!-- IF THERE ARE NO ITEMS TO DISPLAY -->
-    <li class="list-group-item" *ngIf="items.length == 0 || (onlyStars && !itemsHaveStars())">
-      No items available.
-    </li>
   </ul>
 </div>
