@@ -19,4 +19,14 @@ export class InventoryComponent {
     item.star = !item.star;
   }
 
+  itemsHaveStars(){
+    var answer = false;
+    this.items.forEach(function(item){
+      if(item.star){
+        answer = true;
+      }
+    });
+    return answer;
+  }
+
 }
