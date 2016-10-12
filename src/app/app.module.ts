@@ -7,11 +7,15 @@ import { routing } from './app.routes';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { RecepiesComponent } from './recepies/recepies.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    InventoryComponent,
+    RecepiesComponent
   ],
   imports: [
     BrowserModule,
