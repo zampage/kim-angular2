@@ -2,7 +2,7 @@ import {ModuleWithProviders} from "@angular/core";
 import {Routes, RouterModule} from "@angular/router";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {InventoryComponent} from "./inventory/inventory.component";
-import {RecepiesComponent} from "./recepies/recepies.component";
+import {RecipesComponent} from "./recipes/recipes.component";
 
 const appRoutes : Routes = [
   {
@@ -19,8 +19,8 @@ const appRoutes : Routes = [
     component: InventoryComponent
   },
   {
-    path: 'recepies',
-    component: RecepiesComponent
+    path: 'recipes',
+    component: RecipesComponent
   }
 ];
 

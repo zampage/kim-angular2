@@ -8,16 +8,16 @@ import { routing } from './app.routes';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { InventoryComponent } from './inventory/inventory.component';
-import { RecepiesComponent } from './recepies/recepies.component';
+import { RecipesComponent } from './recipes/recipes.component';
 import {ItemsService} from "./services/items.service";
-import {RecepiesService} from "./services/recepies.service";
+import {RecipesService} from "./services/recipes.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     InventoryComponent,
-    RecepiesComponent
+    RecipesComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +26,7 @@ import {RecepiesService} from "./services/recepies.service";
     NgbModule.forRoot(),
     routing
   ],
-  providers: [ItemsService, RecepiesService],
+  providers: [ItemsService, RecipesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
