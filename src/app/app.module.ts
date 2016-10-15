@@ -9,8 +9,8 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { RecipesComponent } from './recipes/recipes.component';
-import {ItemsService} from "./services/items.service";
-import {RecipesService} from "./services/recipes.service";
+import {ItemsService} from "./shared/services/items.service";
+import {RecipesService} from "./shared/services/recipes.service";
 
 @NgModule({
   declarations: [

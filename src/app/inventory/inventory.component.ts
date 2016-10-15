@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {ItemsService} from "../services/items.service";
+import {ItemsService} from "../shared/services/items.service";
 
 @Component({
   selector: 'app-inventory',
