@@ -13,11 +13,21 @@ export class ItemsService {
 
   }
 
-  getItemApi(){
+  getItemApi() : Observable<any>{
     return this.http
       .get(this.baseUrl + '/inventory')
       .map((response : Response) => response.json())
       .catch((error) => Observable.throw(error.toJSON().error || '[Server Error]'));
+  }
+
+  updateItem(id : string, newName, newAmount, newMeasurement, newStar) : Observable<any>{
+    return this.http
+      .put(this.baseUrl + '/item/' + id, {
+        name: newName,
+        amount: newAmount,
+        measurement: newMeasurement,
+        star: newStar
+      });
   }
 
 }

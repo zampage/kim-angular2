@@ -28,6 +28,7 @@ export class InventoryComponent {
 
   toggleStar(item){
     item.star = !item.star;
+    this.updateStar(item);
   }
 
   itemsHaveStars(){
@@ -38,6 +39,10 @@ export class InventoryComponent {
       }
     });
     return answer;
+  }
+
+  updateStar(item){
+    this.is.updateItem(item.id, item.name, item.amount, item.measurement, item.star).subscribe();
   }
 
 }
