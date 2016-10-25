@@ -23,6 +23,7 @@ export class RecipesComponent {
 
   toggleStar(recipe){
     recipe.star = !recipe.star;
+    this.updateStar(recipe);
   }
 
   recipesHaveStars(){
@@ -33,6 +34,10 @@ export class RecipesComponent {
       }
     });
     return answer;
+  }
+
+  updateStar(recipe){
+    this.rs.updateRecipe(recipe.id, recipe.name, recipe.items, recipe.instructions, recipe.star).subscribe();
   }
 
 }

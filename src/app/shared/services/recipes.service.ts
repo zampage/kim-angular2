@@ -20,4 +20,14 @@ export class RecipesService {
       .catch((error) => Observable.throw(error.toJSON().error || '[Server Error]'));
   }
 
+  updateRecipe(id, name, items, instructions, star){
+    return this.http
+      .put(this.baseUrl + '/recipe/' + id, {
+        name: name,
+        items: items,
+        instructions: instructions,
+        star: star
+      })
+  }
+
 }
