@@ -19,11 +19,6 @@ export class RecipesComponent {
     this.rs.getRecipeApi().subscribe(
       data => this.recipes = data
     );
-
-    var that = this;
-    setTimeout(function(){
-      console.log(that.recipes);
-    }, 1000);
   }
 
   toggleStar(recipe){
