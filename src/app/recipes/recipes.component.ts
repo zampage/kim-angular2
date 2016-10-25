@@ -8,11 +8,22 @@ import {RecipesService} from "../shared/services/recipes.service";
 })
 export class RecipesComponent {
 
-  recipes;
+  recipes = [];
   @Input() onlyStars = false;
 
-  constructor(rs : RecipesService) {
-    this.recipes = rs.getRecips();
+  constructor(private rs : RecipesService) {
+
+  }
+
+  ngOnInit(){
+    this.rs.getRecipeApi().subscribe(
+      data => this.recipes = data
+    );
+
+    var that = this;
+    setTimeout(function(){
+      console.log(that.recipes);
+    }, 1000);
   }
 
   toggleStar(recipe){

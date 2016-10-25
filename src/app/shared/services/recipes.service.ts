@@ -1,28 +1,23 @@
 import { Injectable } from '@angular/core';
-import {ItemsService} from "./items.service";
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class RecipesService {
 
-  recipes = [];
+  baseUrl = 'http://localhost/kim-angular2-api';
 
-  constructor(is : ItemsService){
-
-    var items = is.getItems();
-    this.recipes = [
-      {name: 'Spaghetti Carbonara', items: [
-        {id: items[1], amount: '0.3 L'},
-        {id: items[2], amount: '1 pc.'}
-      ], instructions: [
-        "Do Stuff",
-        "And the do more stuff!"
-      ], star: true}
-    ];
+  constructor(private http : Http){
 
   }
 
-  getRecips(){
-    return this.recipes;
+  getRecipeApi(){
+    return this.http
+      .get(this.baseUrl + '/recipes')
+      .map((response : Response) => response.json())
+      .catch((error) => Observable.throw(error.toJSON().error || '[Server Error]'));
   }
 
 }

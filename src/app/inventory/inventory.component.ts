@@ -8,11 +8,22 @@ import {ItemsService} from "../shared/services/items.service";
 })
 export class InventoryComponent {
 
-  items;
+  items = [];
   @Input() onlyStars = false;
 
-  constructor(is : ItemsService) {
-    this.items = is.getItems();
+  constructor(private is : ItemsService) {
+
+  }
+
+  ngOnInit(){
+    this.getAllItems();
+  }
+
+  getAllItems(){
+    this.is.getItemApi().subscribe(
+      data => this.items = data,
+      error => console.log('Server Error')
+    );
   }
 
   toggleStar(item){

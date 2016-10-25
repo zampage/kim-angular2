@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class ItemsService {
 
-  items = [
-    {name: 'Bread', amount: '500 g', star: false},
-    {name: 'Milk', amount: '1.5 L', star: true},
-    {name: 'Eggs', amount: '6 pc.', star: false},
-    {name: 'Nudeln', amount: '200 g', star: true}
-  ];
+  baseUrl = 'http://localhost/kim-angular2-api';
 
-  getItems(){
-    return this.items;
+  constructor(private http : Http){
+
+  }
+
+  getItemApi(){
+    return this.http
+      .get(this.baseUrl + '/inventory')
+      .map((response : Response) => response.json())
+      .catch((error) => Observable.throw(error.toJSON().error || '[Server Error]'));
   }
 
 }
